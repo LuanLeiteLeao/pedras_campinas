@@ -44,9 +44,19 @@
           </div>
         </div>          
         
-         <button  type="submit" class="btn btn-success">Criar Conta</button>
+         <button  type="submit" class="btn btn-success">Salvar</button>
          <button type="button" class="btn btn-danger">Cancelar</button>
   </form>
 </div>
+
+<script>
+	  function open_popup(date_today) {
+		document.querySelector("#id_data_de_nascimento").value = date_today;
+	}
+
+	var data = "{{data}}";
+    open_popup(data);
+	</script>
+
 {% endblock %}
 

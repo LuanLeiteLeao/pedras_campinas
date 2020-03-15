@@ -24,7 +24,7 @@ class User(models.Model):
     cep = models.CharField(verbose_name='CEP', max_length=9)
     telefone = models.CharField(verbose_name='Telefone', max_length=13)
     celular = models.CharField(verbose_name='Celular', max_length=13)
-    gerente = models.BooleanField(default=False)
+    is_gerente = models.BooleanField(default=False)
     
     def __str__(self):
          return self.nome
