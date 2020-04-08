@@ -102,6 +102,7 @@ def editar(request,pk):
                 return redirect('gerenciar_usuario')
 
 
+
     form = FormUser(instance=user_edit)
     data = user_edit.data_de_nascimento.strftime('%Y-%m-%d')
     return render(request,'users/cadastra_usuaria.html',{'form':form, 'data':data })
