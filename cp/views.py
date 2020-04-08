@@ -13,13 +13,10 @@ def home(request):
         test_user =  user
 
     else:
-        test_user = 'True'
+        test_user = True
 
-    print(request.user.pk)
+    print('id do usuario Logado : ' + str(request.user.pk))
     
-    
-
-
     contexto.update({'test':test_user})    
     return render(request, 'index.html',contexto)     
     

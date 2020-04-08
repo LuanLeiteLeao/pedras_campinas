@@ -59,8 +59,9 @@ def sair(request):
 @login_required
 def gerenciar_usuario(request):
 
-    print(request.POST.get('buscar'))
-    print(request.POST.get('inputState'))
+    busca = request.POST.get('buscar')
+    filtro = request.POST.get('inputState')
+
     user = utils.obter_usuario_logado(request)
     contexto = {}
     if user.is_gerente:

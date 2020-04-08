@@ -28,6 +28,7 @@ def definir_gerente(user:User) -> User:
         user.is_gerente = False
         user.save()
 
-
-
     return user
+
+def buscar_user_cep(user:User):
+    return User.objects.filter(cep = user.cep)
