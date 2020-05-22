@@ -28,6 +28,7 @@ urlpatterns = [
     path('accounts/logout/', v.logout_then_login, name='logout'),
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('produtos/', include('products.urls')),    
 ]
 if settings.DEBUG: # new
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
