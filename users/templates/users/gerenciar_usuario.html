@@ -1,51 +1,13 @@
-{% extends 'publico/home/base.html' %}
+{% extends 'publico/dashboards/dashboards_base.html' %}
 {% load static %}
-{% block content %}
-<link href="{% static 'css/cadastra_usuaria.css' %}" rel="stylesheet" type="text/css">
-
-          <nav class="navbar navbar-light" style="background-color: #79b2c5">
-                    <img src="../img/logo1.png" id="logo" />
-
-
-                    <ul class="navbar-nav px-3">
-                        <li class="nav-item text-nowrap">
-                            <img src="../img/male.png" id="user"/>
-                       </li>
-                        <li class="nav-item text-nowrap">
-                              <a class="nav-link" href="{% url 'home'%}">Sair</a>
-                         </li>
-                    </ul>
-          </nav>
-          <div class="row">
-                    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
-                              <div class="sidebar-sticky">
-                                        <ul class="nav flex-column">
-                                          <li class="nav-item">
-                                            <a class="nav-link active"style="font-size:18px;" href="../html/dashboard.html">
-                                              <span data-feather="home"></span>
-                                              Dashboard <span class="sr-only"></span>
-                                            </a>
-                                          </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link"style="font-size:18px;" href="../html/listaProduto.html">
-                                              <span data-feather="file"></span>
-                                              Produtos
-                                            </a>
-                                          </li>
-                                          <li class="nav-item">
-                                            <a class="nav-link"style="font-size:18px;" href="../html/gerenciarUsuario.html">
-                                              <span data-feather="shopping-cart"></span>
-                                              Usuarios
-                                            </a>
-                                          </li>
+{% block style %}
+<link href="{% static 'css/gerenciar_usuario.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block base %}
 
 
 
-                                        </ul>
-                              </div>
-                    </nav>
-
-          <div class="container text-center" style="margin:-128px 0px 0 215px">
+          <div class="container text-center" style="margin:-111px 0px 0 215px">
                     <h1 class="h2">Gerenciar Usuários</h1><hr>
                     <form method="POST" class="post-form">
                         {% csrf_token %}

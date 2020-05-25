@@ -1,1 +1,18 @@
-{{ form }}
+{% extends 'publico/dashboards/dashboards_base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block style %}
+<link href="{% static 'css/cadastroProduto.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block base %}
+
+           
+            <form name="meuForm">
+                {{ form|crispy }}
+                    <button  class="btn btn-primary">Enviar  <a href="#"></a></button>
+                    <button type="reset" class="btn btn-warning">Limpar</button>
+                    
+              
+            </form>
+        
+{% endblock %}

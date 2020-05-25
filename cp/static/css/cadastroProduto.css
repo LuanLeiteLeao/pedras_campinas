@@ -10,7 +10,7 @@ body{ font:100% normal Arial, Helvetica, sans-serif;
   -o-background-size: cover; /* OPERA */
 }
  
-form,input,select,textarea{margin:0; padding:0; color:#ffffff;}
+/*form,input,select,textarea{margin:0; padding:0; color:#ffffff;}*/
  
 div.container {
     margin:0 auto;
