@@ -1,14 +1,23 @@
-CATEGORIAS = [[0,'Quartzo'],
-		[1,'Seixo'],
-		[2,'Laje'],
-		[3,'Retalho'],
-		[4,'Serrada'],
-		]
+
+CATEGORIAS_QUARTZO = [0,'Quartzo']
+CATEGORIAS_SEIXO = [1,'Seixo']
+CATEGORIAS_LAJE = [3,'Laje']
+CATEGORIAS_SERRADA = [4,'Serrada']
+
+CATEGORIAS=[
+	CATEGORIAS_QUARTZO,
+	CATEGORIAS_SEIXO,
+	CATEGORIAS_LAJE,
+	CATEGORIAS_SERRADA
+]		
+
+COR_ROSA = [0,'Rosa']
+COR_Branco = [1,'Branco']
+COR_VERDE = [2,'Verde']
 
 COR = [
-	[0,'Rosa'],
-	[1,'Branco'],
-	[2,'Verde'],
-	
-
+	COR_ROSA,
+COR_Branco,
+COR_VERDE
 ]
+	

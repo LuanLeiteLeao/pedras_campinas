@@ -4,9 +4,10 @@ from .form import ProdutForm
 
 def cadastra_produtos(request):
 	 if request.method == 'POST':
-          form_produt = ProdutForm(request.POST)
-          if form_user.is_valid():
-             post.save()
+          produt = ProdutForm(request.POST, request.FILES)
+          print(produt.errors)
+          if produt.is_valid():
+             produt.save()
             
 
 	 context={'form': ProdutForm()}
