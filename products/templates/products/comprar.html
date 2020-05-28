@@ -1,0 +1,92 @@
+{% extends 'publico/home/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<link href="{% static 'css/Verificarcompra.css' %}" rel="stylesheet" type="text/css">
+        <div class="wrapper">
+
+          <form id="formCadUsuario">
+              <div id="formHead">Verificação de Compra<hr></div>
+      <div class="col-sm-2">
+                      <ul type="none">
+                          <div>
+                              <div class="product-imagem">
+                                  <div class="place-container">
+                                      <li class="li-produto"><img class="div-produto" src="{{produto.imagem.url}}"
+                                                width="500" height="300" style="margin: 0 0 0 70px"></a>
+
+                                      </li>
+                                  </div>
+                              </div>
+                          </div>
+                  </div>
+                <div class="form-row">
+                  <div class="form-group col-md-12">
+                    <label for="inputNome">Produto: {{produto.nome}}</label>
+                  </div>
+
+                  <div class="form-group col-md-12">
+                    <label for="inputEmail">Nome do Usuário: {{nome_user}}</label>
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <label for="inputEndereco">Preço da Compra: {{produto.preco}}</label>
+                </div>
+
+                <div class="form-group">
+                  <label for="inputObs">Data da Compra: {{data}}</label>
+                </div>
+
+
+                  <div class="form-group ">
+                    <label for="inputEstado" >Forma de Pagamento:</label>
+                    <select id="inputEstado"style="width:750px;" class="form-control">
+                      <option selected>Escolher...</option>
+                      <option>Boleto</option>
+                      <option>Cartão de Crédito</option>
+                      <option>Cartão de Débito</option>
+                    </select>
+                  </div>
+              <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+  <i class="fas fa-check"></i>  Finalizar</a>
+</button>
+
+                  <a class="btn btn-danger" href="{% url 'home' %}" role="button"><i class="far fa-times-circle"></i>  Cancelar</a>
+
+          </form>
+        </div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmar Compra</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h3>Confirmar Compra</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+<a href="{% url 'confirmar_comprar' produto.pk %}">
+          <button type="button" class="btn btn-primary">Confirmar</button>
+     </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from users.utils import obter_usuario_logado
+from products.models import Produto
 # from django.contrib.auth.decorators import login_required
 # @login_required(login_url='/users/login/')
 
@@ -16,7 +17,9 @@ def home(request):
         test_user = True
 
     print('id do usuario Logado : ' + str(request.user.pk))
-    
-    contexto.update({'test':test_user})    
+
+    #Pesquisar todos produtos
+    produtos = Produto.objects.all()
+    contexto.update({'test':test_user,'produtos':produtos})
     return render(request, 'index.html',contexto)     
     

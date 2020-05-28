@@ -10,7 +10,7 @@ class User(models.Model):
     nome = models.CharField(verbose_name='Nome', max_length=30)
     email = models.EmailField(verbose_name='Email',max_length=71, null=True)
     cpf = models.CharField(verbose_name='CPF', max_length=14)
-    data_de_nascimento = models.DateField(verbose_name='Data de Nascimento' ,null=True, blank=True)
+    data_de_nascimento = models.DateField(verbose_name='Data de Nascimento' )
     genero = models.CharField(max_length=1, null=True, verbose_name='Sexo',
                               choices=(
                                   (cons.SEXO_MASCULINO[0], cons.SEXO_MASCULINO[1]),
