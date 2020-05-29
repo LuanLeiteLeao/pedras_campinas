@@ -10,17 +10,6 @@ body{ font:100% normal Arial, Helvetica, sans-serif;
 }
 
 
-div.container{
-    background: #ffffff;
-    position: relative;
-    -webkit-border-radius: 10px 10px 10px 10px;
-    border-radius: 5px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    height: auto;
-    
-}
-
 #user {
     width:18%;
     height: 20px;
@@ -28,7 +17,7 @@ div.container{
 }
 
 #logo{
-    width:7%;
+    width:5%;
     height: 60px;
     margin-left: 90px;
     margin-right: auto;
@@ -37,7 +26,7 @@ div.container{
 }
 
 div.container table{
-    height:300px;
+    table-layout: center;
     text-align: center;
     width: auto;
 }

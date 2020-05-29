@@ -17,7 +17,7 @@ class Produto(models.Model):
 
 # Create your models here.
 class Compra(models.Model):
-    produto = models.ForeignKey(Produto, on_delete=models.PROTECT, related_name='Produto')
-    usuario = models.ForeignKey(User, on_delete=models.PROTECT, related_name='User')
+    produto = models.ForeignKey(Produto, on_delete=models.CASCADE, related_name='Produto')
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, related_name='User')
     def __str__(self):
         return self.produto.nome+'/'+self.usuario.nome

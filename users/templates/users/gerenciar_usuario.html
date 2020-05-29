@@ -7,38 +7,41 @@
 
 
 
-          <div class="container text-center" style="margin:-111px 0px 0 215px">
-                    <h1 class="h2">Gerenciar Usuários</h1><hr>
-                    <form method="POST" class="post-form">
-                        {% csrf_token %}
-                        <div class="form-row">
+          <!-- <div class="container text-center"> -->
+              
+               <form method="POST" class="post-form">
+                   {% csrf_token %}
+                   <h1 class="h2">Gerenciar Usuários</h1><hr>
+                   <div class="form-row">
 
-                            <div class="form-group col-md-4">
+                       <div class="form-group col-md-4">
 
-                                <input id = 'buscar'name='buscar' type="search" class="form-control ds-input" placeholder="Buscar...">
-                            </div>
+                           <input id = 'buscar'name='buscar' type="search" class="form-control ds-input" style="width: 130%"placeholder="Buscar...">
+                       </div>
 
-                            <div class="form-group col-md-4">
+                       <div class="form-group col-md-4">
 
-                                  <select id="inputState" class="form-control">
-                                   <option selected>Filtro</option>
-                                      {% for filt in filtro %}
+                             <select id="inputState" class="form-control" style="margin-left: 750%">
+                              <option selected>Filtro</option>
+                                 {% for filt in filtro %}
 
-                                      <option>{{ filt }}</option>
-                                      {% endfor%}
-                                  </select>
-                            </div>
-                            <div class="form-group col-md-4">
+                                 <option>{{ filt }}</option>
+                                 {% endfor%}
+                             </select>
+                       </div>
+                       <div class="form-group col-md-4">
 
-                                <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
-                            </div>
+                           <button type="submit" class="btn btn-success" style="margin-left: 750%;"><i class="fas fa-search"></i></button>
+                       </div>
 
-                        </div>
-                    </form>
+                   </div>
+               </form>
 
 
-
-                    <table class="table table-striped">
+                    <div class="table-responsive-sm">
+                         
+                       
+                    <table class="table "style="height: 100px; margin-left: 25%">
                                    <thead>
                                    <tr >
                                    <th scope="col">ID Usuário</th>
@@ -90,15 +93,16 @@
                <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                          <div class="modal-header">
-                              <h5 class="modal-title" id="excluirProdutoTitulo">Deseja excluir o produto?</h5>
+                              <h5 class="modal-title" id="excluirProdutoTitulo">Deseja remover o usuario?</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                               </button>
                          </div>
 
                          <div class="modal-footer">
-                              <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
-                              <a class="btn btn-Dange" href="{% url 'excluir' us.pk %}" role="button">Sim</a>
+                               <a class="btn btn-success" href="{% url 'excluir' us.pk %}" role="button">Sim</a>
+                               <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                             
                          </div>
                     </div>
                </div>
@@ -117,8 +121,9 @@
                               </div>
 
                               <div class="modal-footer">
-                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
                                    <a class="btn btn-primary" href="{% url 'definir_gerente' us.pk %}" role="button">Sim</a>
+                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                                   
                               </div>
                          </div>
                     </div>
@@ -132,22 +137,25 @@
                                    </tbody>
 
                          </table>
-                         <nav aria-label="Navegação de página">
-                                   <ul class="pagination">
-                                     <li class="page-item">
-                                       <a class="page-link" href="#" aria-label="Anterior">
-                                         <span aria-hidden="true">Anterior</span>
-                                       </a>
-                                     </li>
-                                     <li class="page-item">
-                                       <a class="page-link" href="#" aria-label="Próximo">
-                                         <span aria-hidden="true">Proximo</span>
-                                       </a>
-                                     </li>
-                                   </ul>
-                          </nav>
 
-                         </div>
+                         <nav aria-label="Navegação de página"style="margin-left: 25%">
+                              <ul class="pagination">
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Anterior">
+                                    <span aria-hidden="true">Anterior</span>
+                                  </a>
+                                </li>
+                                <li class="page-item">
+                                  <a class="page-link" href="#" aria-label="Próximo">
+                                    <span aria-hidden="true">Proximo</span>
+                                  </a>
+                                </li>
+                              </ul>
+                     </nav>
+                    </div>
+                        
+
+                     <!-- </div> -->
                     </div>
 
 

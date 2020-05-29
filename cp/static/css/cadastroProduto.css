@@ -19,8 +19,7 @@ div.container {
     position:relative;
     -webkit-border-radius: 10px 10px 10px 10px;
     border-radius: 5px;
-    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    
 }
 #user {
     width:18%;
@@ -28,7 +27,7 @@ div.container {
     margin-right:-400px;
 }
 #logo {
-    width:7%;
+    width:5%;
     height: 60px;
     display: flex;
     margin-left: 90px;

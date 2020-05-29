@@ -6,16 +6,29 @@
 {% endblock %}
 {% block base %}
 
-<div class="container text-center" style="">
-    <h1 class="h2">Listagem de Produtos</h1>
-    <hr>
+    
+<form method="POST" class="post-form">
+     {% csrf_token %}
+     <h1 class="h2">Listagem de Produtos<br></h1>
+     <div class="form-row">
+    
+     <div class="form-group col-md-4">
 
-    <a href="{% url 'cadastrar_produtos' %}">
-        <button class="btn btn-primary">Cadastar Produto</button>
-    </a>
+         <input id = 'buscar'name='buscar' type="search" class="form-control ds-input" style="width: 130%"placeholder="Buscar...">
+     </div>
 
-    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">
-    <table class="table table-striped">
+    
+   
+
+ </div>
+</form>  
+     <div class="form-group col-md-4">
+          <a href="{% url 'cadastrar_produtos' %}">
+          <button class="btn btn-primary" style="width: 35%; margin-left: -36%; margin-top: 9.3%; height: 40%;">Cadastrar Produto</button>
+     </a>
+     </div>
+    <div class="table-responsive-sm"style="margin-left: 37%; margin-top: -7%;">
+    <table class="table table" style="width: 160%; margin-left: -40%;  margin-top: 12%;">
         <thead>
         <tr>
             <th scope="col">ID Produto</th>
@@ -62,8 +75,9 @@
                          </div>
 
                          <div class="modal-footer">
-                              <button type="button" class="btn btn-success" data-dismiss="modal">Não</button>
-                              <a class="btn btn-Dange" href="{% url 'excluir_produto' p.pk %}" role="button">Sim</a>
+                              <a class="btn btn-success" href="{% url 'excluir_produto' p.pk %}" role="button">Sim</a>
+                              <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+                              
                          </div>
                     </div>
                </div>
@@ -95,5 +109,6 @@
                     </div>
                </div>
           </div>
+    </div>
 
     {% endblock %}
