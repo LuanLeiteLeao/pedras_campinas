@@ -15,6 +15,9 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-user"></i> LogOff</a>
                 </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" href="{% url 'logout' %}"><i class="fas fa-truck"></i> Meu Pedidos</a>
+                </li>
                 {% if test.is_gerente %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'gerenciar_usuario' %}"><i class="fas fa-chart-line"></i></a>
@@ -30,6 +33,7 @@
                 </li>
                 {% endif %}
 
+
                 <li class="nav-item-1">
                     <a href="#cart">
                                 <span class="cart-amunt">$100
@@ -37,6 +41,7 @@
                                 </span>
                     </a>
                 </li>
+
             </ul>
         </div>
     </div>
