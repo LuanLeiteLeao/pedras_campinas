@@ -115,7 +115,7 @@ def comprar(request, pk):
 
             nova_compra.save()
 
-            return redirect(boleto.codigo)
+            return meus_pedido(request)
 
 
         else:
@@ -130,7 +130,7 @@ def comprar(request, pk):
                 nova_compra.cartao_de_credito_ou_debito = cartao_salvo
                 nova_compra.save()
                 # nova_compra.status_da_compra
-                return HttpResponse('<h1>Parede q deu certo</h1>')
+                return meus_pedido(request)
 
 
 

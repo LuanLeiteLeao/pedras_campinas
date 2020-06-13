@@ -12,7 +12,7 @@
                               <img src="{% static 'image/male.png' %}" id="user"/>
                          </li>
                          <li class="nav-item text-nowrap">
-                              <a class="nav-link" href="../../index.html">Sair</a>
+                              <a class="nav-link" href="/">Sair</a>
                          </li>
                     </ul>
           </nav>
@@ -38,7 +38,7 @@
 <div class="card mt-3">
     <div style="background=#fff" class="{{comp.id}}">  </div>
         <script>
-
+        //pegar o nome do status da compra e gerar a barra de progresso
           $.ajax({
         url: '{% url "get_name_by_id" %}',
         data: {
@@ -68,6 +68,26 @@
         }
       });
 
+       $.ajax({
+        url: '{% url "get_name_by_id" %}',
+        data: {
+          'pk': {{comp.forma_de_pagamento}}
+        },
+        dataType: 'json',
+        success: function (data) {
+          if (!data.nome) {
+            alert('Falha ao buscar detalhes da categoria');
+          } else {
+
+            var star = $( "#{{comp.id}}" ).first().text();
+            star = $( "#{{comp.id}}" ).first().text(star +data.nome)
+
+
+
+
+          }
+        }
+      });
 
 
 
@@ -76,9 +96,13 @@
         <div class="card-body">
             <br>
             <h5 class="card-title">Pedido Realizado No dia {{comp.data_da_compra}}</h5>
-            <p class="card-text">Nome do Produto: {{comp.produto.nome}}</p>
-            <p class="card-text">Forma de Pagamento: {{comp.forma_de_pagamento}}</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <br>
+            <p class="card-text" ><label>Produto:</label> {{comp.produto.nome}}</p>
+            <p class="card-text" id="{{comp.id}}"><label>Forma de Pagamento:</label> </p>
+            <p class="card-text" ><label>Valor: </label>{{comp.produto.preco}} </p>
+            {% if comp.boleto %}
+            <a href='{{comp.boleto.codigo}}' class="btn btn-primary" target="_blank">Boleto</a>
+            {% endif %}
         </div>
     </div>
     </div>
