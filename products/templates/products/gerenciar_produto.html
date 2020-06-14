@@ -6,235 +6,109 @@
 {% endblock %}
 {% block base %}
 
+<h1 class="h2">Listagem de Produtos</h1>
+<hr>
 
-    <h1 class="h2">Listagem de Produtos</h1><hr>
+<div class="form-row">
 
-                    <a href="cadastroProduto.html">
-                         <button class="btn btn-primary">Cadastar Produto</button>
-                    </a>
+    <div class="form-group col-nd-6">
+    <a href="{% url 'cadastrar_produtos' %}">
+    <button class="btn btn-primary">Cadastar Produto</button>
+    </a>
+    </div>
 
-                    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">
+    <div class="form-group col-md-6">
+    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">
+    </div>
+
+    <div class="form-group col-nd-6">
+    <button class="btn btn-primary">Buscar</button>
+    </div>
+
+    </div>
 
 
-                    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">ID Produto</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Categoria</th>
-            <th scope="col">Cor</th>
-            <th scope="col">Tamanho em cm</th>
-            <th scope="col">Preço em R$</th>
-            <th scope="col">Alterar/Remover</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for p in produtos %}
-          <tr>
-            <th scope="row">{{p.id}}</th>
-            <td>{{p.nome}}</td>
-            <td>{{p.categoria}}</td>
-            <td>{{p.cor}}</td>
-            <td>{{p.tamanho_em_cm}}</td>
-            <td>{{p.preco}}</td>
-            <td>
-                <a href="{% url 'editar_produto' p.pk %}">
-                <button type="button" class="btn btn-primary" >
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">ID Produto</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Cor</th>
+        <th scope="col">Tamanho em cm</th>
+        <th scope="col">Preço em R$</th>
+        <th scope="col">Alterar/Remover</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for p in produtos %}
+    <tr>
+        <th scope="row">{{p.id}}</th>
+        <td>{{p.nome}}</td>
+        <td>{{p.categoria}}</td>
+        <td>{{p.cor}}</td>
+        <td>{{p.tamanho_em_cm}}</td>
+        <td>{{p.preco}}</td>
+        <td>
+            <a href="{% url 'editar_produto' p.pk %}">
+                <button type="button" class="btn btn-primary">
                     <i class="fas fa-edit"></i>
                 </button>
-                    </a>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirProduto{{us.pk}}">
-                    <i class="fas fa-trash"></i>
-                </button>
-            </td>
-        </tr>
-        <tr>
-
-
-                                   <!-- Modal Excluir Produto-->
-          <div class="modal fade" id="excluirProduto{{us.pk}}" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTitulo" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                         <div class="modal-header">
-                              <h5 class="modal-title" id="excluirProdutoTitulo">Deseja excluir o produto?</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                              </button>
-                         </div>
-
-                         <div class="modal-footer">
-                              <a class="btn btn-success" href="{% url 'excluir_produto' p.pk %}" role="button">Sim</a>
-                              <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
-
-                         </div>
-                    </div>
-               </div>
-          </div>
-
-
-        {% endfor %}
-        </tbody>
-    </table>
-
-
+            </a>
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#excluirProduto{{us.pk}}">
+                <i class="fas fa-trash"></i>
+            </button>
+        </td>
+    </tr>
+    <tr>
 
 
         <!-- Modal Excluir Produto-->
-          <div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTiltulo" aria-hidden="true">
-               <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                         <div class="modal-header">
-                              <h5 class="modal-title" id="excluirProdutoTiltulo">Deseja excluir o produto?</h5>
-                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                              </button>
-                         </div>
-
-                         <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                              <button type="button" class="btn btn-primary">Sim</button>
-                         </div>
+        <div class="modal fade" id="excluirProduto{{us.pk}}" tabindex="-1" role="dialog"
+             aria-labelledby="excluirProdutoTitulo" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="excluirProdutoTitulo">Deseja excluir o produto?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-               </div>
-          </div>
+
+                    <div class="modal-footer">
+                        <a class="btn btn-success" href="{% url 'excluir_produto' p.pk %}" role="button">Sim</a>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Não</button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<!-- Modal Excluir Produto-->
+<div class="modal fade" id="excluirProduto" tabindex="-1" role="dialog" aria-labelledby="excluirProdutoTiltulo"
+     aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="excluirProdutoTiltulo">Deseja excluir o produto?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+                <button type="button" class="btn btn-primary">Sim</button>
+            </div>
+        </div>
     </div>
+</div>
+</div>
 
-<!--                    <h1 class="h2">Listagem de Produtos</h1><hr>-->
-
-<!--                    <a href="cadastroProduto.html">-->
-<!--                         <button class="btn btn-primary">Cadastar Produto</button>-->
-<!--                    </a>-->
-
-<!--                    <input type="search" class="form-control ds-input" placeholder="Buscar Produtos...">-->
-
-
-<!--                    <table class="table table-striped">-->
-<!--                                   <thead>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="col">ID Produto</th>-->
-<!--                                   <th scope="col">Nome</th>-->
-<!--                                   <th scope="col">Categoria</th>-->
-<!--                                   <th scope="col">Cor</th>-->
-<!--                                   <th scope="col">Tamanho em cm</th>-->
-<!--                                   <th scope="col">Preço em R$</th>-->
-<!--                                   <th scope="col">Alterar/Remover</th>-->
-<!--                                   </tr>-->
-<!--                                   </thead>-->
-<!--                              <tbody>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">1</th>-->
-<!--                                   <td>Pedra1</td>-->
-<!--                                   <td>Quartzo</td>-->
-<!--                                   <td>Rosa</td>-->
-<!--                                   <td>170</td>-->
-<!--                                   <td>90</td>-->
-<!--                                   <td>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                                <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-<!--                                         <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                                 <i class="fas fa-trash"></i>-->
-<!--                                        </button>-->
-<!--                                   </td>-->
-<!--                                   </tr>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">2</th>-->
-<!--                                   <td>Pedra2</td>-->
-<!--                                   <td>Retalho</td>-->
-<!--                                   <td>Branco</td>-->
-<!--                                   <td>200</td>-->
-<!--                                   <td>70</td>-->
-<!--                                   <td>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                             <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                             <i class="fas fa-trash"></i>-->
-<!--                                        </button>-->
-<!--                                       </td>-->
-<!--                                   </tr>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">3</th>-->
-<!--                                   <td>Pedra3</td>-->
-<!--                                   <td>Laje</td>-->
-<!--                                   <td>Verde</td>-->
-<!--                                   <td>70</td>-->
-<!--                                   <td>100</td>-->
-<!--                                   <td>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                             <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                            <i class="fas fa-trash"></i>-->
-<!--                                        </button>-->
-<!--                                       </td>-->
-<!--                                   </tr>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">4</th>-->
-<!--                                   <td>Pedra4</td>-->
-<!--                                   <td>Seixo</td>-->
-<!--                                   <td>Rosa</td>-->
-<!--                                   <td>231</td>-->
-<!--                                   <td>46</td>-->
-<!--                                   <td>-->
-<!--                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                                  <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                                  <i class="fas fa-trash" ></i>-->
-<!--                                        </button>-->
-
-<!--                                   </td>-->
-<!--                                   </tr>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">5</th>-->
-<!--                                   <td>Pedra5</td>-->
-<!--                                   <td>Serrada</td>-->
-<!--                                   <td>Branco</td>-->
-<!--                                   <td>500</td>-->
-<!--                                   <td>112</td>-->
-<!--                                   <td>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                                  <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                                  <i class="fas fa-trash"></i>-->
-<!--                                        </button>-->
-<!--                                   </td>-->
-<!--                                   </tr>-->
-<!--                                   <tr>-->
-<!--                                   <th scope="row">6</th>-->
-<!--                                   <td>Pedra6</td>-->
-<!--                                   <td>Seixo</td>-->
-<!--                                   <td>Verde</td>-->
-<!--                                   <td>198</td>-->
-<!--                                   <td>321</td>-->
-<!--                                   <td>-->
-<!--                                        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#alterarProduto">-->
-<!--                                                  <i class="fas fa-edit"></i>-->
-<!--                                        </button>-->
-<!--                                             <button type="button" class="btn btn-light" data-toggle="modal" data-target="#excluirProduto">-->
-<!--                                                  <i class="fas fa-trash"></i>-->
-<!--                                        </button>-->
-<!--                                   </td>-->
-<!--                                   </tr>-->
-<!--                              </tbody>-->
-<!--                    </table>-->
-<!--                    <nav aria-label="Navegação de página">-->
-<!--                              <ul class="pagination">-->
-<!--                                <li class="page-item">-->
-<!--                                  <a class="page-link" href="#" aria-label="Anterior">-->
-<!--                                    <span aria-hidden="true">Anterior</span>-->
-<!--                                  </a>-->
-<!--                                </li>-->
-<!--                                <li class="page-item">-->
-<!--                                  <a class="page-link" href="#" aria-label="Próximo">-->
-<!--                                    <span aria-hidden="true">Proximo</span>-->
-<!--                                  </a>-->
-<!--                                </li>-->
-<!--                              </ul>-->
-<!--                     </nav>-->
-<!--          </div>-->
-
-    {% endblock %}
+{% endblock %}

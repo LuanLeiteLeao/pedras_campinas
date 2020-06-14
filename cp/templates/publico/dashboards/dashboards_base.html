@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <nav class="navbar navbar-light" style="background-color: #79b2c5">
                     <img src="{% static 'image/logo1.png' %}" id="logo" />
 
@@ -12,7 +12,7 @@
                               <img src="{% static 'image/male.png' %}" id="user"/>
                          </li>
                          <li class="nav-item text-nowrap">
-                              <a class="nav-link" href="../../index.html">Sair</a>
+                              <a class="nav-link" href="/">Sair</a>
                          </li>
                     </ul>
           </nav>
@@ -21,19 +21,19 @@
                     <div class="sidebar-sticky" >
                           <ul class="nav flex-column">
                             <li class="nav-item">
-                              <a class="nav-link active" style="font-size:18px;"href="../html/dashboard.html">
+                              <a class="nav-link active" style="font-size:18px;"href="{% url 'gerenciar_dashboard' %}">
                                 <span data-feather="home"></span>
                                 Dashboard <span class="sr-only"></span>
                               </a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" style="font-size:18px;" href="../html/listaProduto.html">
+                              <a class="nav-link" style="font-size:18px;" href="{% url 'gerenciar_produtos' %}">
                                 <span data-feather="file"></span>
                                 Produtos
                               </a>
                             </li>
                             <li class="nav-item">
-                              <a class="nav-link" style="font-size:18px;"href="../html/gerenciarUsuario.html">
+                              <a class="nav-link" style="font-size:18px;"href="{% url 'gerenciar_usuario' %}">
                                 <span data-feather="shopping-cart"></span>
                                 Usuarios
                               </a>

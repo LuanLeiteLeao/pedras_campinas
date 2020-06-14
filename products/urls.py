@@ -11,4 +11,5 @@ urlpatterns = [
     path('confirmar_comprar/<pk>', views.confirmar_comprar, name='confirmar_comprar'),
     path('meus_pedidos/', views.meus_pedido, name='meus_pedidos'),
     path('get_name_by_id/', views.get_name_by_id, name='get_name_by_id'),
+    path('gerenciar_dashboard/', views.gerenciar_dashboard, name='gerenciar_dashboard'),
 ]
